@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// import { useDimensions } from '@react-native-community/hooks';
+import HomeScreen from "./app/screens/HomeScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
+import BuildMemory from "./app/screens/BuildMemory";
+import { StatusBar } from "expo-status-bar";
+import ReminderList from "./app/components/ReminderList";
+import Screen from "./app/components/Screen";
+import AppTextInput from "./app/components/AppTextInput";
+import AppPicker from "./app/components/AppPicker";
+import LogInScreen from "./app/screens/LogInScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // need to fix screen component
+    <>
+      <StatusBar style="light" />
+      <Screen style={{ padding: 20 }}>
+        {/* <WelcomeScreen /> */}
+        {/* <HomeScreen /> */}
+
+        <LogInScreen />
+
+        {/* <BuildMemory /> */}
+        {/* <AppPicker icon={"calendar"} placeholder="Scheduler" /> */}
+
+        {/* <ReminderList/> */}
+      </Screen>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
