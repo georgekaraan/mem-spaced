@@ -5,9 +5,15 @@ import { MaterialIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 import defaultStyles from "../config/styles";
 
-export default function AppTextInput({ icon, items, ...otherProps }) {
+export default function AppTextInput({
+  icon,
+  items,
+  styleContainer,
+  styleText,
+  ...otherProps
+}) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, styleContainer]}>
       {icon && (
         <MaterialIcons
           style={styles.icon}
@@ -16,7 +22,10 @@ export default function AppTextInput({ icon, items, ...otherProps }) {
           color="black"
         />
       )}
-      <TextInput style={[defaultStyles.text, styles.text]} {...otherProps} />
+      <TextInput
+        style={[defaultStyles.text, styles.text, styleText]}
+        {...otherProps}
+      />
     </View>
   );
 }
@@ -27,14 +36,16 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     flexDirection: "row",
     padding: 15,
-    marginBottom: 20,
+    marginVertical: 10,
   },
   icon: {
     width: 25,
-    color: colors.dark,
+    color: colors.primary,
   },
   text: {
     width: "80%",
     marginLeft: 10,
+    color: colors.primary,
+    fontWeight: "600",
   },
 });

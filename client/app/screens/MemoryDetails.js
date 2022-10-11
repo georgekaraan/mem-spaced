@@ -1,30 +1,20 @@
 import React from "react";
 import { View, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
+
 import { renderIcon } from "../functions/renderIcon";
 
 import colors from "../config/colors";
-import AppText from "./AppText";
+import AppText from "../components/AppText";
 
-export default function MemoryCard({ title, subTitle, type, onPress }) {
+export default function MemoryDetails({ route }) {
+  const listing = route.params;
+
   return (
-    <TouchableWithoutFeedback onPress={onPress}>
-      <View style={styles.card}>
-        <AppText num={1} style={styles.title}>
-          {title}
-        </AppText>
-        <View style={styles.content}>
-          <View style={styles.cardImage}>
-            {renderIcon(type, "50%", "primary")}
-          </View>
-          <View style={styles.cardDesc}>
-            <AppText num={3} style={styles.subTitle}>
-              {subTitle}
-            </AppText>
-          </View>
-        </View>
-        <Text style={styles.more}>More</Text>
-      </View>
-    </TouchableWithoutFeedback>
+    <View style={styles.card}>
+      <AppText num={1} style={styles.title}>
+        {listing.title}
+      </AppText>
+    </View>
   );
 }
 
