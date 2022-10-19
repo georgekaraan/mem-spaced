@@ -5,49 +5,17 @@ import { useFormikContext } from "formik";
 import AppText from "./AppText";
 import { ErrorMessage } from "./forms";
 import Tool from "./Tool";
-
-const tools = [
-  {
-    id: 1,
-    icon: "text",
-    name: "Text",
-  },
-  {
-    id: 2,
-    icon: "quote",
-    name: "Quote",
-  },
-  {
-    id: 3,
-    icon: "image",
-    name: "Image",
-  },
-  {
-    id: 4,
-    icon: "video",
-    name: "Video",
-    disabled: true,
-  },
-  {
-    id: 5,
-    icon: "voicenote",
-    name: "Recording",
-    disabled: true,
-  },
-  {
-    id: 6,
-    icon: "link",
-    name: "Link",
-    disabled: true,
-  },
-];
+import tools from "../config/toolsIcons";
 
 export default function ChooseTool({ tool, name, setTool }) {
-  const { setFieldValue, errors } = useFormikContext();
+  const { setFieldValue, errors, values } = useFormikContext();
 
   const handlePress = (item) => {
+    if (tool === item) return null;
+
     setTool(item);
     setFieldValue(name, item);
+    setFieldValue("content", "");
   };
 
   return (
@@ -61,8 +29,8 @@ export default function ChooseTool({ tool, name, setTool }) {
           keyExtractor={(tool) => tool.id.toString()}
           renderItem={({ item }) => (
             <Tool
-              onPress={() => handlePress(item.name)}
-              selected={tool === item.name ? true : false}
+              onPress={() => handlePress(item.icon)}
+              selected={tool === item.icon ? true : false}
               disabled={item.disabled}
               icon={item.icon}
             >

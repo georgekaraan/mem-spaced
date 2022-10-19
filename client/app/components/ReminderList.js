@@ -4,9 +4,9 @@ import { View, FlatList } from "react-native";
 import colors from "../config/colors";
 import SingleReminderCheck from "./SingleReminderCheck";
 
-export default function ReminderList() {
+export default function ReminderList({ style }) {
   return (
-    <View>
+    <View style={style}>
       <FlatList
         style={{ borderRadius: 15 }}
         data={reminderList}

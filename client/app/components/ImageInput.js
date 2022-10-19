@@ -83,17 +83,16 @@ export default function ImageInput({ imagesUri, onChangeImage }) {
           </View>
         </TouchableWithoutFeedback>
       </View>
-      {imagesUri.length > 1 && (
-        <AppButton
-          title="Remove All"
-          colorBg="dark"
-          colorText="error"
-          width={120}
-          text=""
-          center="center"
-          font={18}
-          onPress={() => onChangeImage([])}
-        />
+      {imagesUri.length > 0 && (
+        <>
+          <MaterialCommunityIcons
+            name="delete"
+            size={30}
+            color={colors.error}
+            onPress={() => onChangeImage([])}
+          />
+          {/* <AppButton title="Remove All" onPress={() => onChangeImage([])} /> */}
+        </>
       )}
 
       {imagesUri && (

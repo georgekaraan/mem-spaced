@@ -10,7 +10,8 @@ export default function AppFormField({
   styleText,
   ...otherProps
 }) {
-  const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
+  const { setFieldTouched, handleChange, errors, touched, values } =
+    useFormikContext();
 
   return (
     <>
@@ -19,6 +20,7 @@ export default function AppFormField({
         onChangeText={handleChange(name)}
         styleContainer={styleContainer}
         styleText={styleText}
+        value={values[name]}
         {...otherProps}
       />
       <ErrorMessage error={errors[name]} visible={touched[name]} />

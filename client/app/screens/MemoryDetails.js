@@ -1,10 +1,11 @@
 import React from "react";
 import { View, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
 
-import { renderIcon } from "../functions/renderIcon";
-
-import colors from "../config/colors";
 import AppText from "../components/AppText";
+import colors from "../config/colors";
+import { renderIcon } from "../functions/renderIcon";
+import ReminderList from "../components/ReminderList";
+import AppButton from "../components/AppButton";
 
 export default function MemoryDetails({ route }) {
   const listing = route.params;
@@ -14,6 +15,18 @@ export default function MemoryDetails({ route }) {
       <AppText num={1} style={styles.title}>
         {listing.title}
       </AppText>
+      <ReminderList
+        style={{
+          marginVertical: 30,
+          borderWidth: 2,
+          borderColor: colors.dark,
+          borderRadius: 20,
+        }}
+      />
+      <AppButton
+        styleButton={{ backgroundColor: colors.dark }}
+        title="Mark Complete"
+      />
     </View>
   );
 }
@@ -25,7 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginHorizontal: 10,
     padding: 10,
-    height: 150,
+
     shadowColor: "gray",
     shadowOpacity: 0.2,
     shadowRadius: 7,

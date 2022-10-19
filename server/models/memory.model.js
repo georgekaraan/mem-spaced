@@ -1,19 +1,24 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const memoriesSchema = new Schema({
-
+const memoriesSchema = new Schema(
+  {
     title: String,
-    content: String,
+    content: Schema.Types.Mixed,
+    tool: String,
     date_created: Date,
-    box: [{
+    location: Object,
+    box: [
+      {
         num: Number,
         active: Boolean,
         marked: Boolean,
-        date_marked: Date
-    }],
-    schedule: Number
+        date_marked: Date,
+      },
+    ],
+    schedule: Number,
+  },
+  { strictQuery: false }
+);
 
-}, { strictQuery: false })
-
-module.exports = mongoose.model('memories', memoriesSchema);
+module.exports = mongoose.model("memories", memoriesSchema);

@@ -11,7 +11,7 @@ export default function FormImagePicker({ name }) {
 
   return (
     <>
-      <AppHeading>Add Your Image(s)...</AppHeading>
+      {/* <AppHeading>Add Your Image(s)...</AppHeading> */}
       <View style={styles.container}>
         <ImageInput
           imagesUri={values[name]}

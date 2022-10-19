@@ -31,13 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primary,
     padding: 20,
-    // alignItems: "center",
   },
-  // bg_image: {
-  //   flex: 1,
-  //   alignItems: "center",
-  //   justifyContent: "flex-end",
-  // },
   screen: {
     flex: 1,
     padding: 20,

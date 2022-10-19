@@ -2,6 +2,7 @@ import React from "react";
 import {
   StyleSheet,
   TouchableHighlight,
+  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
@@ -29,8 +30,9 @@ export default function Tool({
       </TouchableWithoutFeedback>
     </View>
   ) : (
-    <TouchableHighlight
-      underlayColor={colors.text}
+    <TouchableOpacity
+      // underlayColor={colors.secondary}
+      activeOpacity={1}
       style={
         selected
           ? [styles.tool, { backgroundColor: colors.secondary }]
@@ -42,7 +44,7 @@ export default function Tool({
         {renderIcon(icon, "35", "primary")}
         <AppText style={styles.text}>{children}</AppText>
       </View>
-    </TouchableHighlight>
+    </TouchableOpacity>
   );
 }
 
